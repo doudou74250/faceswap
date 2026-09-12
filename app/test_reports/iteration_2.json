@@ -1,0 +1,24 @@
+{
+  "summary": "Frontend regression test for the reported React 'insertBefore' NotFoundError on /create when clicking 'Générer mon aperçu'. Executed 2 Playwright flows on the public URL: (1) full happy-path with small MP4 + JPG, consent, generate; (2) navigate-away mid-processing. Both flows completed with 0 pageerrors and 0 insertBefore errors. Progress bar rendered, backend produced a job, app navigated cleanly to /preview/:id (mock fallback due to depleted fal.ai credits, as expected).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Create.jsx: button icon+span are now stable siblings (no fragment ternary) — good fix for reconciler crash.",
+    "Poll interval is stored in useRef and cleared on unmount via mountedRef — clean lifecycle handling.",
+    "setTimeout(0) before navigate() ensures React commit finishes before route change — prevents mid-commit unmount race.",
+    "index.html has translate=no and meta google=notranslate — mitigates Chrome auto-translate DOM mutations that cause insertBefore crashes."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (frontend-only test)", "frontend": "100%"},
+  "seed_data_creation": "Generated small test MP4 (11KB) + JPG (10KB) via ffmpeg testsrc at /tmp/testfiles/",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Bug fix verified. Universal Key balance depleted so backend uses mock provider (returns original video as preview) — expected. If credits restored, verify real fal.ai swap path.",
+  "rca of the issue": "Original crash was caused by React reconciler failing to insertBefore an unstable child structure inside the generate button (fragment with ternary swapping between icon and spinner) combined with Chrome auto-translate mutating the DOM. Fix stabilized DOM (fixed icon+span structure), disabled translate at document level, and deferred navigate() to next tick so React commits before unmount. Verified: no insertBefore/pageerror in either happy-path or unmount-mid-processing scenarios."
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "First-finish latency-sensitive test of MorphCut. All 11 backend endpoints working end-to-end: root reports provider_is_mock=true, upload/video and upload/photo accept valid files and reject bad ext/mime (HTTP 400), job created, progress advanced through STAGES to preview_ready in ~7s, preview returned as video/mp4, download without payment returns 402, Stripe checkout returns checkout_url + session_id and inserts payment_transactions with status=initiated/pending, status endpoint returns pending, after direct DB mark of paid the download returned MP4 bytes (200 video/mp4), contact persisted, /api/admin/stats unauthenticated returns 401. Frontend: Landing renders hero + 4,99 € + FAQ; /create shows 2 dropzones + consent checkbox; /admin/login shows Google sign-in button. No console errors.",
+  "tested_scope": ["backend", "frontend", "integration", "auth"],
+  "passed": [
+    "GET /api/ -> provider_is_mock=true",
+    "POST /api/upload/video valid mp4 -> 200 with storage_path/size/filename",
+    "POST /api/upload/video .txt -> 400",
+    "POST /api/upload/photo valid jpg -> 200",
+    "POST /api/upload/photo bad mime -> 400",
+    "POST /api/jobs -> 200 status=created; polling reaches preview_ready in ~7s with has_preview=true",
+    "GET /api/jobs/{id}/preview -> 200 content-type video/mp4",
+    "GET /api/jobs/{id}/download unpaid -> 402",
+    "POST /api/payments/checkout -> 200 checkout_url + session_id; payment_transactions row status=initiated/pending",
+    "GET /api/payments/status/{sid} -> pending",
+    "After DB mark paid: GET /api/jobs/{id}/download -> 200 video/mp4",
+    "POST /api/contact -> {ok:true} persisted",
+    "GET /api/admin/stats without token -> 401",
+    "Frontend landing has hero, 4,99 €, FAQ",
+    "Frontend /create has 2 file inputs + consent checkbox",
+    "Frontend /admin/login shows 'Se connecter avec Google' button"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": [
+    "Face-swap provider is MOCKED (returns uploaded video bytes unchanged) as designed.",
+    "Stripe checkout hosted page not opened in tests per instructions; only creation + DB-simulated paid flow validated.",
+    "Admin Google auth positive path not testable without real Google session; only 401 on protected endpoint verified."
+  ]
+}

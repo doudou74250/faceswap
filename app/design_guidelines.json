@@ -1,0 +1,222 @@
+{
+  "project_name": "MorphCut AI - Studio Video Face Swap",
+  "brand_identity": {
+    "name": "MorphCut",
+    "tagline": "Échangez n'importe quel visage en vidéo en quelques secondes avec une précision studio.",
+    "theme": "Light mode by default (fond clair, aéré, minimaliste, high-end tech startup style Linear/Vercel/Pyxel inspired, with crisp borders and soft neutral shadows)",
+    "aesthetic_archetype": "Swiss High-Contrast meets Warm Digital Studio (Clean white #FAFAFA, soft slate borders #E2E8F0, punchy Indigo/Electric Violet #4F46E5 accents, high visibility emerald badges for free previews, high-contrast dark primary CTAs #0F172A with subtle inner glow)."
+  },
+  "typography": {
+    "headline_font": "Outfit, system-ui, -apple-system, sans-serif",
+    "body_font": "IBM Plex Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    "mono_font": "JetBrains Mono, Menlo, monospace",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900",
+      "h3": "text-xl sm:text-2xl font-semibold text-slate-800",
+      "h4": "text-lg sm:text-xl font-medium text-slate-800",
+      "body": "text-base text-slate-600 leading-relaxed",
+      "caption": "text-xs sm:text-sm text-slate-500 font-mono tracking-wide"
+    },
+    "guidelines": [
+      "No generic Inter for headers: use Outfit / IBM Plex Sans for modern crisp personality",
+      "Maintain tight tracking on all sizes above 32px (tracking-tight)",
+      "High contrast overlines with uppercase + tracking-widest + text-xs text-indigo-600 font-semibold"
+    ]
+  },
+  "colors": {
+    "background": "#FAFAFA",
+    "surface": "#FFFFFF",
+    "surface_subtle": "#F4F4F5",
+    "card_bg": "#FFFFFF",
+    "text_primary": "#0F172A",
+    "text_secondary": "#475569",
+    "text_muted": "#94A3B8",
+    "border_subtle": "#E2E8F0",
+    "border_strong": "#CBD5E1",
+    "brand_primary": "#4F46E5",
+    "brand_primary_hover": "#4338CA",
+    "brand_secondary": "#06B6D4",
+    "brand_dark_button": "#0F172A",
+    "brand_dark_button_hover": "#1E293B",
+    "accent_emerald": "#10B981",
+    "accent_amber": "#F59E0B",
+    "danger": "#EF4444"
+  },
+  "layout_and_grids": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing_philosophy": "Generous spacing (py-16 sm:py-24, gap-8 to gap-12, internal card padding p-6 to p-8)",
+    "bento_style": "Mode A Tetris / Asymmetric Bento for features & sample showcases",
+    "rounded_corners": "rounded-2xl and rounded-3xl for cards, rounded-xl for inputs and preview frames, rounded-full for badges and floating pills"
+  },
+  "pages_and_flows": {
+    "landing": {
+      "path": "/",
+      "sections": [
+        "Header with logo, links (Créer, Exemples, Tarifs, Dashboard, FAQ), and CTA button 'Créer ma vidéo'",
+        "Hero section with bold headline, social proof pills (4.9/5 ⭐, +120,000 swaps générés), live before/after interactive slider or dual frame face-swap showcase",
+        "3 étapes simples : 1. Importez vidéo & visage source, 2. Prévisualisez gratuitement en 10s, 3. Téléchargez en Full HD 4K pour 4,99€",
+        "Interactive Live Demo showcase with playable preview clips & toggleable face swaps",
+        "Pricing block highlighted single transparent pricing: 4,99€ / vidéo HD sans abonnement, avec garantie qualité & rendu sans filigrane",
+        "Testimonials & Trust badges (Chiffrement SSL, Suppression sous 24h, Paiement sécurisé Stripe)",
+        "FAQ accordion and high-impact CTA banner"
+      ]
+    },
+    "create": {
+      "path": "/create",
+      "features": [
+        "Two prominent dropzones: Zone 1 (Vidéo cible - MP4/MOV, duration, resolution, size detection) and Zone 2 (Photo du visage source - JPG/PNG avec détection faciale visuelle)",
+        "Sample templates gallery: pre-loaded ready-to-test clips (Action film, Interview, Fashion show) and faces to test in 1 click without uploading custom files",
+        "Real-time upload progress and file validation (limits, duration checks)",
+        "Dynamic processing state with live progress bar (0% to 100%) showing realistic AI milestones: Détection des repères faciaux (68 points), Alignement 3D temporal, Rendu neurale multi-frame, Génération de la preview",
+        "Cancel / Reset / Direct test buttons with realistic interactive feedback"
+      ]
+    },
+    "preview_and_payment": {
+      "path": "/preview/:id",
+      "features": [
+        "Split layout: Left/Main is the Video Player with watermarked low-res preview, playback controls, and before/after toggle",
+        "Right panel: Video Specs summary (Résolution cible 1080p/4K, Durée, FPS, Poids estimé, Visage extrait)",
+        "Stripe Checkout direct integration (simulateur Stripe modal ou checkout réel avec carte de test, Apple Pay / CB logos, facture auto)",
+        "Clear value proposition: 4,99€ tarif unique par vidéo, téléchargement immédiat, suppression du filigrane, rendu sans perte audio/vidéo"
+      ]
+    },
+    "confirmation": {
+      "path": "/confirmation/:id",
+      "features": [
+        "Success celebration with animated checkmark and order details (ID transaction, reçu Stripe simulé)",
+        "HD Video Player sans filigrane prêt à visionner",
+        "Download button (Direct .mp4 download with realistic file delivery)",
+        "Options to share link, copy temporary URL (valid 24h for security), or start a new swap"
+      ]
+    },
+    "admin_dashboard": {
+      "path": "/admin",
+      "features": [
+        "Key metrics cards: Total Générations, Previews gratuites, Vidéos payées (4.99€), Chiffre d'affaires total (Revenu brut), Taux de conversion preview->achat, Taux d'erreur",
+        "Revenue chart (Recharts) over time (derniers 14 jours) with clean minimalist styling",
+        "Recent transactions table with status filters (Payé, En attente, Échoué), download action, and customer identifier",
+        "Processing queue monitor with latency & GPU status badges",
+        "Storage & clean-up metrics (fichiers temporaires nettoyés sous 24h)"
+      ]
+    },
+    "legal_pages": {
+      "routes": [
+        "/terms (CGU - Conditions Générales d'Utilisation)",
+        "/privacy (Politique de Confidentialité et RGPD - protection des données biométriques)",
+        "/contact (Formulaire de contact rapide avec validation et confirmation Sonner toast)"
+      ]
+    }
+  },
+  "image_urls": {
+    "portrait_faces": [
+      {
+        "url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxwb3J0cmFpdCUyMGZhY2V8ZW58MHx8fHwxNzg5MTYwNzM0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Portrait studio femme lumière douce - Visage test 1",
+        "usage": "Visage source pour swap démo & gallery"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwzfHxwb3J0cmFpdCUyMGZhY2V8ZW58MHx8fHwxNzg5MTYwNzM0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Portrait homme cadré serré haute définition - Visage test 2",
+        "usage": "Visage source homme pour swap démo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZhY2V8ZW58MHx8fHwxNzg5MTYwNzM0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Portrait homme jeune souriant - Visage test 3",
+        "usage": "Avatar créateur et sélection rapide"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1564460576398-ef55d99548b2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxzbWlsaW5nJTIwdmlkZW8lMjBjcmVhdG9yJTIwZmFjZXxlbnwwfHx8fDE3ODkxNjA3NDJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Portrait jeune créatrice de contenu souriante - Visage test 4",
+        "usage": "Exemple de swap créateur / influenceur"
+      }
+    ],
+    "video_thumbnails_and_samples": [
+      {
+        "url": "https://images.unsplash.com/photo-1776994225844-758dbee35d2b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxjaW5lbWElMjBhY3RvciUyMHN0dWRpb3xlbnwwfHx8fDE3ODkxNjA3MzR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Cadre cinématique scène d'acteur studio - Scène vidéo démo A",
+        "usage": "Vidéo cible: Extrait Cinéma / Action"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHw0fHxwb3J0cmFpdCUyMGZhY2V8ZW58MHx8fHwxNzg5MTYwNzM0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Scène interview cadrée studio noir et blanc - Scène vidéo démo B",
+        "usage": "Vidéo cible: Interview / Podcast"
+      }
+    ],
+    "sample_videos": [
+      {
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "title": "Action Studio Trailer",
+        "duration": "15s",
+        "resolution": "1080p 60fps"
+      },
+      {
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "title": "Lifestyle & Travel Clip",
+        "duration": "15s",
+        "resolution": "1080p 60fps"
+      }
+    ]
+  },
+  "data_testid_strategy": {
+    "nav": {
+      "home_link": "nav-home-link",
+      "create_link": "nav-create-link",
+      "pricing_link": "nav-pricing-link",
+      "admin_link": "nav-admin-link",
+      "create_cta": "nav-create-cta-button"
+    },
+    "hero": {
+      "primary_cta": "hero-create-swap-button",
+      "secondary_cta": "hero-view-demo-button"
+    },
+    "create_page": {
+      "video_dropzone": "video-dropzone-input",
+      "photo_dropzone": "photo-dropzone-input",
+      "sample_video_select": "sample-video-card-0",
+      "sample_face_select": "sample-face-card-0",
+      "start_swap_button": "start-swap-generation-button",
+      "progress_bar": "swap-progress-bar",
+      "progress_status_text": "swap-progress-status-text"
+    },
+    "preview_page": {
+      "video_player": "preview-video-player",
+      "toggle_compare": "preview-toggle-compare-button",
+      "pay_and_download_button": "preview-pay-download-cta-button",
+      "stripe_checkout_modal": "stripe-checkout-dialog",
+      "stripe_submit_button": "stripe-submit-payment-button"
+    },
+    "confirmation_page": {
+      "download_hd_button": "confirmation-download-hd-button",
+      "copy_link_button": "confirmation-copy-link-button",
+      "new_swap_button": "confirmation-new-swap-button"
+    },
+    "admin_dashboard": {
+      "stats_generations": "admin-stats-total-generations",
+      "stats_revenue": "admin-stats-total-revenue",
+      "stats_previews": "admin-stats-free-previews",
+      "stats_conversions": "admin-stats-conversion-rate",
+      "orders_table": "admin-transactions-table"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Use React JS with React Router DOM v7 (defined in package.json). Ensure routing supports: '/', '/create', '/preview/:id', '/confirmation/:id', '/admin', '/terms', '/privacy', '/contact'.",
+    "Keep the aesthetic clean, bright (fond clair), airy, with generous whitespace (py-16 to py-24 on sections, p-8 on cards).",
+    "Do not use dark gradients across entire pages. Use pure #FAFAFA background with clean white cards, 1px subtle borders (#E2E8F0), and prominent rounded corners (rounded-2xl).",
+    "Buttons must have high contrast and clear visual hierarchy: Primary dark CTAs (bg-slate-900 text-white hover:bg-slate-800) with rounded-xl or rounded-full, and secondary light buttons (bg-white border border-slate-200 text-slate-800 hover:bg-slate-50).",
+    "Include simulated realistic face-swap pipeline with a dynamic multi-step progress bar (0% to 100%) that cycles through realistic AI logs: Landmark detection, face alignment, neural blend, preview encoding.",
+    "Provide ready-to-use sample video clips and preset faces so users can test immediately in 1 click without requiring them to prepare MP4/PNG files on their machine.",
+    "Preview page must display a realistic player with a subtle overlay watermark ('PREVIEW GRATUITE - QUALITÉ RÉDUITE') and prominent unlock card highlighting 'Télécharger en HD 4K sans filigrane - 4,99€'.",
+    "Simulate Stripe modal with realistic test cards and mock checkout flow, automatically directing to confirmation page on success.",
+    "Admin dashboard must have interactive Recharts graphs, filtering on transactions, simulated download links, and revenue summaries.",
+    "Include Sonner toast notifications on all copy, upload, and payment triggers.",
+    "Ensure every interactive button, input, tab, and card has explicit data-testid attributes according to the data_testid_strategy."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": {
+    "spacing": "2-3x generous spacing. Do not cram cards or text.",
+    "contrast": "Always respect WCAG AA text contrast. High contrast on hover and active states.",
+    "animations": "Subtle Framer Motion entrance transitions and smooth tab changes. Avoid heavy full-screen blocking animations.",
+    "header_nav": "Sticky header with backdrop blur bg-white/80 border-b border-slate-100, visible links on desktop, mobile dropdown on mobile.",
+    "footer": "Crisp slate footer with legal links, language indicator, and secure payment badges (Stripe, SSL)."
+  }
+}
